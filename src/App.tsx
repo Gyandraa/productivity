@@ -1,9 +1,12 @@
-import "./App.css"
+import { Study } from "./components/study";
 
-function App() {
+export function App() {
   return (
-    <h1>Hello World</h1>
+    <div>
+    <h1>Hello world</h1>
+
+    <Study />
+    </div>
   );
 }
-
-export default App;
+ 
