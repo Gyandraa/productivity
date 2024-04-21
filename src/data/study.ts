@@ -1,13 +1,19 @@
 export const study = [
     {
         id: 1,
-        title: "exercise in the morning",
-        isDone: true
+        title: "Task List",
+        isDone: true,
     },
 
     {
         id: 2,
-        title: "breakfast",
-        isDone: false
-    }
-]
+        title: "task execution",
+        isDone: true,
+    },
+
+    {
+        id: 3,
+        title: "assignment collection",
+        isDone: false,
+    },
+];
