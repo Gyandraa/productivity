@@ -3,10 +3,9 @@ import { Study } from "./components/study";
 export function App() {
   return (
     <div>
-    <h1>productivity</h1>
+      <h1>productivity</h1>
 
-    <Study />
+      <Study />
     </div>
   );
 }
- 
