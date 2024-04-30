@@ -1,4 +1,4 @@
-export const dataStudys = [
+export const dataTasks = [
   {
     id: 1,
     title: "Task List",

@@ -1,11 +1,11 @@
-import { Studys } from "./components/studys";
+import { Tasks } from "./components/tasks";
 
 export function App() {
   return (
     <div>
       <h1>productivity</h1>
 
-      <Studys />
+      <Tasks />
     </div>
   );
 }
