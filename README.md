@@ -4,11 +4,11 @@ A simple application to help you organize your tasks
 
 ## Feature
 
-- Add task
-- Delete task
+- Add
+- Delete
+- Search
 
 ## Technologies Used
 
 - React
 - TypeScript
-- Node.js Package Manager (npm)
