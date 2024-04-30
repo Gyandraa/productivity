@@ -4,11 +4,11 @@ import { dataStudys } from "../data/studys";
 export function Studys() {
   const [studys, setStudys] = useState(dataStudys);
   const [newStudy, setNewStudy] = useState("");
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("");
 
   function searchStudy(event: React.ChangeEvent<HTMLInputElement>) {
     setSearchQuery(event.target.value.toLowerCase());
-  };
+  }
 
   const filteredStudys = studys.filter((study) =>
     study.title.toLowerCase().includes(searchQuery.toLowerCase())
@@ -42,12 +42,12 @@ export function Studys() {
     <div>
       <form>
         <label htmlFor="searchStudy">Search</label>
-        <input 
-        type="text"
-        id="searchStudy"
-        value={searchQuery}
-        onChange={searchStudy}
-        placeholder="Search Study" 
+        <input
+          type="text"
+          id="searchStudy"
+          value={searchQuery}
+          onChange={searchStudy}
+          placeholder="Search Study"
         />
       </form>
       <form onSubmit={addStudy}>
