@@ -1,4 +1,4 @@
-export const study = [
+export const dataStudys = [
   {
     id: 1,
     title: "Task List",

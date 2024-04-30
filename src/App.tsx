@@ -1,11 +1,11 @@
-import { Study } from "./components/study";
+import { Studys } from "./components/studys";
 
 export function App() {
   return (
     <div>
       <h1>productivity</h1>
 
-      <Study />
+      <Studys />
     </div>
   );
 }
