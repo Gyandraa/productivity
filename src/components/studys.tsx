@@ -41,7 +41,7 @@ export function Studys() {
   return (
     <div>
       <form>
-        <label htmlFor="searchStudy"></label>
+        <label htmlFor="searchStudy">Search</label>
         <input 
         type="text"
         id="searchStudy"
