@@ -40,67 +40,69 @@ export function Tasks() {
   }
 
   return (
-    <div className="container mx-auto py-4"> 
-      <h1 className="text-2xl font-bold mb-4">Tasks List</h1> 
- 
-      <form className="mb-4"> 
-        <label htmlFor="searchTask" className="mr-2">Search:</label> 
-        <input 
-          type="text" 
-          id="searchTask" 
-          value={searchKeyword} 
-          onChange={searchTask} 
-          placeholder="Search Study" 
-          className="border border-gray-300 rounded px-2 py-1" 
-        /> 
-      </form> 
- 
-      <form onSubmit={addTask} className="mb-4"> 
-        <div className="flex items-center"> 
-          <label htmlFor="title" className="mr-2">Add New Task:</label> 
-          <input 
-            type="text" 
-            id="title" 
-            name="title" 
-            value={newTask} 
-            onChange={handleInputChange} 
-            placeholder="Add new" 
-            className="border border-gray-300 rounded px-2 py-1" 
-          /> 
-          <button 
-            type="submit" 
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-1 rounded ml-2" 
-          > 
-            Add 
-          </button> 
-        </div> 
-      </form> 
- 
-      <ul> 
-        {filteredTasks.map((task) => { 
-          return ( 
-            <li 
-              key={task.id} 
-              className="flex justify-between items-center border-b border-gray-300 py-2" 
-            > 
-              <Link 
-                to={`/detail/${task.id}`} 
-                className="text-blue-500 hover:underline" 
-              > 
-                {task.title} 
-              </Link> 
+    <div className="container mx-auto py-4">
+      <form className="mb-4">
+        <label htmlFor="searchTask" className="mr-2">
+          Search:
+        </label>
+        <input
+          type="text"
+          id="searchTask"
+          value={searchKeyword}
+          onChange={searchTask}
+          placeholder="Search Study"
+          className="border border-gray-300 rounded px-2 py-1"
+        />
+      </form>
+
+      <form onSubmit={addTask} className="mb-4">
+        <div className="flex items-center">
+          <label htmlFor="title" className="mr-2">
+            Add New Task:
+          </label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value={newTask}
+            onChange={handleInputChange}
+            placeholder="Add new"
+            className="border border-gray-300 rounded px-2 py-1"
+          />
+          <button
+            type="submit"
+            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-1 rounded ml-2"
+          >
+            Add
+          </button>
+        </div>
+      </form>
+
+      <ul>
+        {filteredTasks.map((task) => {
+          return (
+            <li
+              key={task.id}
+              className="flex justify-between items-center border-b border-gray-300 py-2"
+            >
+              <Link
+                to={`/detail/${task.id}`}
+                className="text-blue-500 hover:underline"
+              >
+                {task.title}
+              </Link>
               <div>
-              <button 
-                onClick={() => removeTask(task.id)} 
-                className="bg-red-500 hover:bg-red-600 text-white font-semibold px-2 py-1 rounded" 
-              > 
-                Remove 
-              </button> 
+                <button
+                  onClick={() => removeTask(task.id)}
+                  className="bg-red-500 hover:bg-red-600 text-white font-semibold px-2 py-1 rounded"
+                >
+                  Remove
+                </button>
               </div>
-            </li> 
-          ); 
-        })} 
-      </ul> 
-    </div> 
-  ); 
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 }
