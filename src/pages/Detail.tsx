@@ -27,6 +27,10 @@ export function Detail() {
     }
   }, [taskId]);
 
+  if (!taskItem) { 
+    return <div className="container mx-auto">Task not found</div>; 
+  } 
+
   const handleEdit = () => {
     setIsEdit(true);
   };
