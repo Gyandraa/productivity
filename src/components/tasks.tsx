@@ -1,17 +1,18 @@
 import { useState } from "react";
 import { dataTasks } from "../data/tasks";
+import { Link } from "react-router-dom";
 
 export function Tasks() {
   const [tasks, setTasks] = useState(dataTasks);
   const [newTask, setNewTask] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
+  const [searchKeyword, setSearchKeyword] = useState("");
 
   function searchTask(event: React.ChangeEvent<HTMLInputElement>) {
-    setSearchQuery(event.target.value.toLowerCase());
+    setSearchKeyword(event.target.value.toLowerCase());
   }
 
   const filteredTasks = tasks.filter((task) =>
-    task.title.toLowerCase().includes(searchQuery.toLowerCase())
+    task.title.toLowerCase().includes(searchKeyword.toLowerCase())
   );
 
   function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
@@ -39,45 +40,67 @@ export function Tasks() {
   }
 
   return (
-    <div>
-      <form>
-        <label htmlFor="searchTask">Search</label>
-        <input
-          type="text"
-          id="searchTask"
-          value={searchQuery}
-          onChange={searchTask}
-          placeholder="Search Study"
-        />
-      </form>
-      <form onSubmit={addTask}>
-        <div>
-          <label htmlFor="title">Add New </label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={newTask}
-            onChange={handleInputChange}
-            placeholder="Add new"
-          />
-        </div>
-
-        <div>
-          <button type="submit">Add New Study</button>
-        </div>
-      </form>
-
-      <ul>
-        {filteredTasks.map((task) => {
-          return (
-            <li key={task.id}>
-              <h2>{task.title}</h2>;
-              <button onClick={() => removeTask(task.id)}>Remove</button>;
-            </li>
-          );
-        })}
-      </ul>
-    </div>
-  );
+    <div className="container mx-auto py-4"> 
+      <h1 className="text-2xl font-bold mb-4">Tasks List</h1> 
+ 
+      <form className="mb-4"> 
+        <label htmlFor="searchTask" className="mr-2">Search:</label> 
+        <input 
+          type="text" 
+          id="searchTask" 
+          value={searchKeyword} 
+          onChange={searchTask} 
+          placeholder="Search Study" 
+          className="border border-gray-300 rounded px-2 py-1" 
+        /> 
+      </form> 
+ 
+      <form onSubmit={addTask} className="mb-4"> 
+        <div className="flex items-center"> 
+          <label htmlFor="title" className="mr-2">Add New Task:</label> 
+          <input 
+            type="text" 
+            id="title" 
+            name="title" 
+            value={newTask} 
+            onChange={handleInputChange} 
+            placeholder="Add new" 
+            className="border border-gray-300 rounded px-2 py-1" 
+          /> 
+          <button 
+            type="submit" 
+            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-1 rounded ml-2" 
+          > 
+            Add 
+          </button> 
+        </div> 
+      </form> 
+ 
+      <ul> 
+        {filteredTasks.map((task) => { 
+          return ( 
+            <li 
+              key={task.id} 
+              className="flex justify-between items-center border-b border-gray-300 py-2" 
+            > 
+              <Link 
+                to={`/detail/${task.id}`} 
+                className="text-blue-500 hover:underline" 
+              > 
+                {task.title} 
+              </Link> 
+              <div>
+              <button 
+                onClick={() => removeTask(task.id)} 
+                className="bg-red-500 hover:bg-red-600 text-white font-semibold px-2 py-1 rounded" 
+              > 
+                Remove 
+              </button> 
+              </div>
+            </li> 
+          ); 
+        })} 
+      </ul> 
+    </div> 
+  ); 
 }
