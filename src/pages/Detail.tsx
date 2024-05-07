@@ -2,7 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { dataTasks, editTask } from "../data/tasks";
 import { useEffect, useState } from "react";
 
-type TaskItem = {
+type TaskId = {
   id: number;
   title: string;
   isDone: boolean;
@@ -13,7 +13,7 @@ export function Detail() {
   const taskId = id && !isNaN(parseInt(id)) ? parseInt(id) : undefined;
 
   const navigate = useNavigate();
-  const [taskItem, setTaskItem] = useState<TaskItem | null>(null);
+  const [taskItem, setTaskItem] = useState<TaskId | null>(null);
   const [title, setTitle] = useState("");
   const [isDone, setIsDone] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
