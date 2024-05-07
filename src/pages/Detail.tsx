@@ -50,9 +50,6 @@ export function Detail() {
         <div>
           <div>
             <h1>{taskItem?.title}</h1>
-            <div>
-              <input type="checkbox" name="isDone" id="isDone" hidden />
-            </div>
           </div>
 
           <button onClick={handleEdit}>Edit</button>
