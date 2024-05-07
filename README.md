@@ -7,6 +7,7 @@ A simple application to help you organize your tasks
 - Add
 - Delete
 - Search
+- Edit
 
 ## Technologies Used
 
